@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Sosiogram
+        psr4_prefix: Sosiogram
+        src_path: app
