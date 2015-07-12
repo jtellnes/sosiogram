@@ -4,7 +4,7 @@ namespace Sosiogram;
 
 use Illuminate\Database\Eloquent\Model;
 
-class statement extends Model
+class Statement extends Model
 {
     /**
      * The database table used by the model.
@@ -18,5 +18,5 @@ class statement extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['survey', 'context', 'by_user', 'ref_user'];
 }

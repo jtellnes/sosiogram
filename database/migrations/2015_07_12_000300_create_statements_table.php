@@ -15,8 +15,8 @@ class CreateStatementsTable extends Migration
         Schema::create('statements', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('survey');
-            $table->integer('context');
             $table->integer('by_user');
+            $table->integer('context');
             $table->integer('ref_user');
             $table->timestamps();
         });
