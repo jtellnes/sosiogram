@@ -18,5 +18,5 @@ class Statement extends Model
      *
      * @var array
      */
-    protected $fillable = ['survey', 'context', 'by_user', 'ref_user'];
+    protected $fillable = ['survey', 'by_user', 'context', 'ref_user'];
 }

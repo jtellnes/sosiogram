@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Sosiogram\Http\Requests;
 use Sosiogram\Http\Controllers\Controller;
 use Sosiogram\Statement;
+use Sosiogram\User;
 
 class StatementsController extends Controller
 {
@@ -26,9 +27,10 @@ class StatementsController extends Controller
      * @param Statement $statement
      * @return Response
      */
-    public function create(Statement $statement)
+    public function create()
     {
-        return view("statements.create", compact($statement));
+        $users = User::get();
+        return view("statements.create", compact('users'));
     }
 
     /**

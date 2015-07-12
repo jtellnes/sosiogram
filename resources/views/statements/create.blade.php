@@ -7,7 +7,11 @@
 
     <div class="col-md-6">
         Gjeldende elev:
-        <input type="number" name="by_user">
+        <select name="by_user">
+            @foreach($users as $user)
+                <option value="{{ $user->id }}">{{ $user->name }}</option>
+            @endforeach
+        </select>
     </div>
 
     <div class="col-md-6">
@@ -17,7 +21,11 @@
 
     <div class="col-md-6">
         Referert elev
-        <input type="number" name="ref_user">
+        <select name="ref_user">
+            @foreach($users as $user)
+                <option value="{{ $user->id }}">{{ $user->name }}</option>
+            @endforeach
+        </select>
     </div>
 
     <div>
