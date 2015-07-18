@@ -2,6 +2,10 @@
 @section('title', 'registrering')
 
 @section('content')
+    <div class="row">
+        <h1>Registrering</h1>
+    </div>
+    <hr/>
     <form method="POST" action="/statements">
         {!! csrf_field() !!}
 
@@ -9,31 +13,39 @@
             <input type="hidden" name="survey" value="1">
         </div>
 
-        <div class="col-md-6">
-            Gjeldende elev:
-            <select name="by_user" class="form-control">
-                @foreach($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                @endforeach
-            </select>
+        <div class="row">
+            <div class="col-md-3">
+                <label for="by_user" class="dropdown-header">Gjeldende elev</label>
+            </div>
+            <div class="col-md-3">
+                <label for="context" class="dropdown-header">Situasjon</label>
+            </div>
+            <div class="col-md-3">
+                <label for="ref_user" class="dropdown-header">Referert elev</label>
+            </div>
         </div>
 
-        <div class="col-md-6">
-            Situasjon
-            <input type="number" name="context">
-        </div>
-
-        <div class="col-md-6">
-            Referert elev
-            <select name="ref_user" class="form-control">
-                @foreach($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <div>
-            <button type="submit">Svar</button>
+        <div class="row form-group">
+            <div class="col-md-3">
+                <select name="by_user" class="form-control">
+                    @foreach($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-3">
+                <input type="number" name="context" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <select name="ref_user" class="form-control">
+                    @foreach($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary">Svar</button>
+            </div>
         </div>
     </form>
 @endsection
