@@ -26,3 +26,6 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 // Statement routes:
 Route::resource('statements','StatementsController');
+
+// Contexts routes:
+Route::resource('contexts','ContextsController');
