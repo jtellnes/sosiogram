@@ -24,7 +24,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        //
+        $router->model('statements', 'Sosiogram\Statement');
+        $router->model('contexts', 'Sosiogram\Context');
 
         parent::boot($router);
     }

@@ -38,6 +38,10 @@ class ContextsController extends Controller
      */
     public function store(Context $context, Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|unique:contexts|max:255',
+        ]);
+
         $context->fill($request->all())->save();
 
         return redirect(route('contexts.index'));
@@ -46,10 +50,11 @@ class ContextsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param Context $context
      * @return Response
+     * @internal param int $id
      */
-    public function show($id)
+    public function show(Context $context)
     {
         return 'show...';
     }
@@ -57,10 +62,11 @@ class ContextsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param Context $context
      * @return Response
+     * @internal param int $id
      */
-    public function edit($id)
+    public function edit(Context $context)
     {
         return 'edit...';
     }
@@ -68,10 +74,11 @@ class ContextsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param Context $context
      * @return Response
+     * @internal param int $id
      */
-    public function update($id)
+    public function update(Context $context)
     {
         return 'update...';
     }
@@ -79,11 +86,14 @@ class ContextsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param Context $context
      * @return Response
+     * @throws \Exception
+     * @internal param int $id
      */
-    public function destroy($id)
+    public function destroy(Context $context)
     {
-        return 'destroy...';
+        $context->delete();
+        return redirect(route('contexts.index'));
     }
 }
