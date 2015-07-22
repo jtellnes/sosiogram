@@ -34,7 +34,11 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <input type="number" name="context" class="form-control">
+                <select name="context" class="form-control">
+                    @foreach($contexts as $context)
+                        <option value="{{ $context->id }}">{{ $context->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="col-md-3">
                 <select name="ref_user" class="form-control">

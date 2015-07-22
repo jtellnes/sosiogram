@@ -4,6 +4,7 @@ namespace Sosiogram\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Sosiogram\Context;
 use Sosiogram\Http\Requests;
 use Sosiogram\Http\Controllers\Controller;
 use Sosiogram\Statement;
@@ -30,7 +31,8 @@ class StatementsController extends Controller
     public function create()
     {
         $users = User::get();
-        return view("statements.create", compact('users'));
+        $contexts = Context::get();
+        return view("statements.create", compact('users', 'contexts'));
     }
 
     /**
@@ -42,6 +44,7 @@ class StatementsController extends Controller
      */
     public function store(Statement $statement, Request $request)
     {
+        dd($request);
         $statement->fill($request->all())->save();
     }
 

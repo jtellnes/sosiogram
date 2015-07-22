@@ -18,7 +18,7 @@
         <li class="list-group-item">
             <form action="{{ route('contexts.store') }}" method="post">
                 {!! csrf_field() !!}
-                <input type="text" name="name"/>
+                <input type="text" name="name" placeholder="Ny situasjon"/>
                 <input type="submit" value="Legg til" class="btn btn-xs btn-success"/>
             </form>
         </li>
