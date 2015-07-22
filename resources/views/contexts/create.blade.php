@@ -2,7 +2,7 @@
 @section('title', 'registrering')
 
 @section('content')
-    <h1>Legg til situasjon</h1>
+    <h2>Legg til situasjon</h2>
     <hr/>
     <form method="POST" action="/contexts">
         {!! csrf_field() !!}

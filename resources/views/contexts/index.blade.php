@@ -2,7 +2,7 @@
 @section('title', 'Situasjoner')
 
 @section('content')
-    <h1>Situasjoner</h1>
+    <h2>Situasjoner</h2>
     <hr/>
     <ul class="list-group">
         @foreach($contexts as $context)

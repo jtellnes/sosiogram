@@ -33,12 +33,16 @@
             .title {
                 font-size: 96px;
             }
+            a{
+                text-decoration: none;
+                color: black;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <a href="/home"><div class="title">Sosiogram</div></a>
             </div>
         </div>
     </body>

@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="row">
-        <h1>Registrering</h1>
+        <h2>Registrering</h2>
     </div>
     <hr/>
     <form method="POST" action="/statements">

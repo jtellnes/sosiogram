@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
+Route::get('/home',['middleware' => 'auth', function () {
     return view('home');
-});
+}]);
 
 // Authentication routes:
 Route::get('auth/login', 'Auth\AuthController@getLogin');
