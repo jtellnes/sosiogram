@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sosiogram | Testing local storage</title>
+</head>
+<script type="application/javascript" src="javascripts/localStorage.js"></script>
+<script type="application/javascript">
+/*    ids.forEach(function(id) {
+        setItem(id, names[ids.indexOf(id)]);
+    })
+*/
+    console.log("localStorage.length: " + localStorage.length);
+</script>
+<body>
+    <div>
+        <label for="key">Key</label> <input id="key" type="text" name="key"/>
+    </div>
+    <div>
+        <label for="value">Value</label> <input id="value" type="text" name="value"/>
+    </div>
+    <button name="submit" onclick="setItem(document.getElementById('key').value, document.getElementById('value').value)">Legg til</button>
+
+    <div>
+        <ul>
+            <script type="application/javascript">
+                getAllPairs().forEach(function(pair) {
+                    document.write('<li onclick="deleteItem(' + pair.key + ')">' + pair.key + ": " + pair.value);
+                })
+            </script>
+        </ul>
+    </div>
+</body>
+</html>
