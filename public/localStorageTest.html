@@ -3,32 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Sosiogram | Testing local storage</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css"
+          type="text/css"/>
 </head>
-<script type="application/javascript" src="javascripts/localStorage.js"></script>
-<script type="application/javascript">
-/*    ids.forEach(function(id) {
-        setItem(id, names[ids.indexOf(id)]);
-    })
-*/
-    console.log("localStorage.length: " + localStorage.length);
-</script>
 <body>
-    <div>
-        <label for="key">Key</label> <input id="key" type="text" name="key"/>
+<div class="container">
+    <h1>Id-mapping for elever</h1>
+    <div id="namesMap">
+        <form id="idNameMapping">
+            <label for="key">Key</label>
+            <input v-model="newId" id="key" type="text" name="key"/>
+            <label for="value">Value</label>
+            <input v-model="newUser" id="value" type="text" name="value"/>
+            <button v-show="!editData()" class="btn btn-default" v-on="click: addItem(newId, newUser)">Legg til</button>
+            <button v-show="editData()" class="btn btn-default" v-on="click: addItem(newId, newUser)">Lagre</button>
+            <div>
+                <ul>
+                    <li v-on="click: editPair(pair)" v-repeat="pair: pairs">{{ pair.value }}</li>
+                </ul>
+            </div>
+        </form>
     </div>
-    <div>
-        <label for="value">Value</label> <input id="value" type="text" name="value"/>
-    </div>
-    <button name="submit" onclick="setItem(document.getElementById('key').value, document.getElementById('value').value)">Legg til</button>
-
-    <div>
-        <ul>
-            <script type="application/javascript">
-                getAllPairs().forEach(function(pair) {
-                    document.write('<li onclick="deleteItem(' + pair.key + ')">' + pair.key + ": " + pair.value);
-                })
-            </script>
-        </ul>
-    </div>
+</div>
+<script type="application/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.12.8/vue.min.js"></script>
+<script type="application/javascript" src="javascripts/localStorage.js"></script>
 </body>
 </html>
